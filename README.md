@@ -51,13 +51,23 @@
 Using a Raspberry Pi to send data to a spreadsheet via button press.
 
 ## Set up Python environment
+In terminal, change directory to your project folder and type:
 
 ```python -m venv .venv```
 
 ## Activate the environment
+To activate the Python environment, type:
 
 ```source .venv/bin/activate```
 
 ## Install modules
+Next install the modules while in your project's virtual environment:
+
 ```pip install gspread google-auth gpiozero```
 
+* Note that gpiozero should be installed by default in Raspberry Pi OS
+
+# Hardware Setup
+Connect a button to the Raspberry Pi GPIO pin 18 and to GND.
+
+![Button connected to a Raspberry Pi pin 18 and GND](/assets/images/consultation-button_bb.png)
