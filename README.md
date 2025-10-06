@@ -25,9 +25,9 @@
 2. Go to the __Keys__ tab.
 3. Click __Add Key → Create new key → JSON__.
 4. It will download a file like `sheet-updater-123abc.json`.
-    ○ Move it into your project folder and rename it something easy, like: 
+   1. Move it into your project folder and rename it something easy, like: 
         ```service_account.json```
-    ○ __Keep this file secret__ — it grants access to your Google account project.
+   2. __Keep this file secret__ — it grants access to your Google account project.
 
 5️⃣ Share your Google Sheet with the Service Account
 1. Open the Google Sheet you want to use.
@@ -38,10 +38,13 @@
 6️⃣ Get your Spreadsheet ID
 1. Open your Google Sheet in a browser.
 2. The URL looks like this:
+
     ```https://docs.google.com/spreadsheets/d/1AbCdEFghIjKlMnOpQrStUvWxYz1234567890/edit#gid=0```
 3. Copy the long ID between /d/ and /edit:
+
     ```1AbCdEFghIjKlMnOpQrStUvWxYz1234567890```
 4. Use that in your Python script:
+
     ```SPREADSHEET_ID = "1AbCdEFghIjKlMnOpQrStUvWxYz1234567890"```
 
 # Set up Raspberry Pi
