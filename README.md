@@ -70,4 +70,4 @@ Next install the modules while in your project's virtual environment:
 # Hardware Setup
 Connect a button to the Raspberry Pi GPIO pin 18 and to GND.
 
-![Button connected to a Raspberry Pi pin 18 and GND](/assets/images/consultation-button_bb.png)
+![Button connected to a Raspberry Pi pin 18 and GND](assets/images/consultation-button_bb.png)
