@@ -53,7 +53,7 @@ Using a Raspberry Pi to send data to a spreadsheet via button press.
 ## Set up Python environment
 In terminal, change directory to your project folder and type:
 
-```python -m venv .venv```
+```python -m venv --system-site-packages .venv```
 
 ## Activate the environment
 To activate the Python environment, type:
@@ -63,7 +63,7 @@ To activate the Python environment, type:
 ## Install modules
 Next install the modules while in your project's virtual environment:
 
-```pip install gspread google-auth gpiozero```
+```pip install gspread google-auth gpiozero rpi-lgpio```
 
 * Note that gpiozero should be installed by default in Raspberry Pi OS
 
