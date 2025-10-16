@@ -50,6 +50,12 @@
 # Set up Raspberry Pi
 Using a Raspberry Pi to send data to a spreadsheet via button press.
 
+## Install Vim
+```
+sudo apt update
+sudo apt install vim
+```
+
 ## Set up Python environment
 In terminal, change directory to your project folder and type:
 
@@ -65,7 +71,33 @@ Next install the modules while in your project's virtual environment:
 
 ```pip install gspread google-auth gpiozero rpi-lgpio```
 
-* Note that gpiozero should be installed by default in Raspberry Pi OS
+* Note that gpiozero and rpi-lgpio should be installed by default in Raspberry Pi OS
+
+## Set up script to run at boot
+
+To run a Python script within a virtual environment as a systemd service, follow these steps: 
+
+### Create a systemd service file.
+Create a new file in `/etc/systemd/system/` with a .service extension (e.g., my_script.service).
+
+```sudo vim /etc/systemd/system/counter.service```
+
+### Add content to the service file.
+Populate the service file with the following structure, replacing placeholders with your specific details:
+
+```
+[Unit]
+Description=Consult Count Button
+After=network.target
+
+[Service]
+User=counter
+WorkingDirectory=/home/counter/consult-buttons
+ExecStart=/home/counter/consult-buttons/.venv/bin/python /home/counter/consult-buttons/counter.py
+Restart=always
+```
+
+
 
 # Hardware Setup
 Connect a button to the Raspberry Pi GPIO pin 18 and to GND.
