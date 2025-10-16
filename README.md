@@ -109,16 +109,16 @@ Code
 
 ```
 sudo systemctl daemon-reload
-sudo systemctl enable my_script.service
-sudo systemctl start my_script.service
+sudo systemctl enable counter.service
+sudo systemctl start counter.service
 ```
 
 ### Check the service status and logs:
 Verify the service status and check for any errors using:
 
 ```
-systemctl status my_script.service
-journalctl -u my_script.service -f
+systemctl status counter.service
+journalctl -u counter.service -f
 ```
 
 
