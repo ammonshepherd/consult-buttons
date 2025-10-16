@@ -51,6 +51,8 @@
 Using a Raspberry Pi to send data to a spreadsheet via button press.
 
 ## Install Vim
+Install vim or use some other terminal editor.
+
 ```
 sudo apt update
 sudo apt install vim
@@ -74,7 +76,6 @@ Next install the modules while in your project's virtual environment:
 * Note that gpiozero and rpi-lgpio should be installed by default in Raspberry Pi OS
 
 ## Set up script to run at boot
-
 To run a Python script within a virtual environment as a systemd service, follow these steps: 
 
 ### Create a systemd service file.
@@ -94,7 +95,30 @@ After=network.target
 User=counter
 WorkingDirectory=/home/counter/consult-buttons
 ExecStart=/home/counter/consult-buttons/.venv/bin/python /home/counter/consult-buttons/counter.py
-Restart=always
+Restart=on-failure
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
+```
+
+### Reload systemd and enable/start the service:
+After saving the service file, reload systemd to recognize the new service, then enable it to start on boot and start it immediately:
+Code
+
+```
+sudo systemctl daemon-reload
+sudo systemctl enable my_script.service
+sudo systemctl start my_script.service
+```
+
+### Check the service status and logs:
+Verify the service status and check for any errors using:
+
+```
+systemctl status my_script.service
+journalctl -u my_script.service -f
 ```
 
 
